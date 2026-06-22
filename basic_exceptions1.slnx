@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="basic_exceptions1/basic_exceptions1.vcxproj" Id="3d51f657-cc9e-4ed0-b9f5-c86c142cb3de" />
+</Solution>
