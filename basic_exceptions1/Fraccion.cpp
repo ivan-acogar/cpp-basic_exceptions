@@ -1,5 +1,6 @@
 #include "Fraccion.hpp"
 #include <iostream>
+#include <stdexcept>
 
 Fraccion::Fraccion() {
 	numerador = 0;
@@ -7,16 +8,33 @@ Fraccion::Fraccion() {
 }
 
 Fraccion::Fraccion(int num, int den) {
-	numerador = num;
-	denominador = den;
+	if (den == 0) {
+		throw std::invalid_argument("El denominador no puede ser 0.");
+	}
+	else if (num == 0) {
+		numerador = 0;
+		denominador = 1;
+	}
+	else if (num > 0 and den < 0) {
+		numerador = -num;
+		denominador = -den;
+	}
+	else if (num < 0 and den < 0) {
+		numerador = -num;
+		denominador = -den;
+	}
+	else {
+		numerador = num;
+		denominador = den;
+	}
+	reducir_fraccion();
 }
 
 void Fraccion::reducir_fraccion() {
-	int i{1};
-	while (numerador % i == 0 || denominador % i == 0) {
-		numerador /= i;
-		denominador /= i;
-		i++;
+	while (denominador != 0) {
+		int residuo = numerador % denominador;
+		numerador = denominador;
+		denominador = residuo;
 	}
 }
 
@@ -29,7 +47,8 @@ void Fraccion::suma_fracciones(Fraccion& f2) {
 	numerador_f2 = f2.numerador * this->denominador;
 	int numerador_final = numerador_f1 + numerador_f2;
 
-	reducir_fraccion();
+	Fraccion resultado(numerador_final, denominador_comun);
+	resultado.reducir_fraccion();
 
-	std::cout << "Resultado de suma: " << numerador_final << " / " << denominador_comun;
+	std::cout << "Resultado de suma: " << resultado.numerador << " / " << resultado.denominador;
 }
