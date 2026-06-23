@@ -31,11 +31,18 @@ Fraccion::Fraccion(int num, int den) {
 }
 
 void Fraccion::reducir_fraccion() {
-	while (denominador != 0) {
-		int residuo = numerador % denominador;
-		numerador = denominador;
-		denominador = residuo;
+	int a{ numerador };
+	int b{ denominador };
+
+	while (b != 0) {
+		int residuo = a % b;
+		a = b;
+		b = residuo;
 	}
+
+	numerador /= a;
+	denominador /= a;
+
 }
 
 void Fraccion::suma_fracciones(Fraccion& f2) {
