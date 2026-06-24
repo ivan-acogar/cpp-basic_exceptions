@@ -9,7 +9,7 @@ Fraccion::Fraccion() {
 
 Fraccion::Fraccion(int num, int den) {
 	if (den == 0) {
-		throw std::invalid_argument("El denominador no puede ser 0.");
+		throw std::invalid_argument("\nEl denominador no puede ser 0.\n\n");
 	}
 	else if (num == 0) {
 		numerador = 0;
@@ -27,7 +27,12 @@ Fraccion::Fraccion(int num, int den) {
 		numerador = num;
 		denominador = den;
 	}
+
 	reducir_fraccion();
+}
+
+void const Fraccion::imprimir_fraccion() {
+	std::cout << "\nFraccion: " << numerador << "/" << denominador << "\n\n";
 }
 
 void Fraccion::reducir_fraccion() {
