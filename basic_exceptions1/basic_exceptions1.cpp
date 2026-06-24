@@ -6,7 +6,7 @@
 int main() {
 	std::vector <Fraccion*> fracciones;
 	std::cout << "=== Calculadora de fracciones ===\n\n";
-	
+
 	for (int i = 0; i <= 1; ++i) {
 
 		std::cout << "Crear fraccion numero (" << i + 1 << "):\n";
@@ -37,5 +37,30 @@ int main() {
 		std::cout << "2) resta de fracciones\n";
 		std::cout << "3) multiplicacion de fracciones\n";
 		std::cout << "4) division de fracciones\n";
+		std::cout << "5) salir\n\n";
+
+		try {
+			Fraccion* f1 = fracciones[0];
+			Fraccion* f2 = fracciones[1];
+
+			std::cout << "Elige una opcion: ";
+			int option{};
+			std::cin >> option;
+			std::cout << "\n";
+
+			if (std::cin.fail())
+			{
+				throw std::invalid_argument("Debe ingresar un numero entero dentro del rango.\n\n");
+			}
+			if (option == 1) {
+				f1->suma_fracciones(*f2);
+			}
+		}
+
+		catch (const std::invalid_argument& e) {
+			std::cout << e.what();
+			std::cin.clear();
+			std::cin.ignore();
+		}
 	}
 }

@@ -51,6 +51,8 @@ void Fraccion::reducir_fraccion() {
 }
 
 void Fraccion::suma_fracciones(Fraccion& f2) {
+	std::cout << "Suma seleccionada: " << this->numerador << "/" << this->denominador << " + " << f2.numerador << "/" << f2.denominador << "\n\n";
+
 	int numerador_f1{};
 	int numerador_f2{};
 
@@ -62,5 +64,5 @@ void Fraccion::suma_fracciones(Fraccion& f2) {
 	Fraccion resultado(numerador_final, denominador_comun);
 	resultado.reducir_fraccion();
 
-	std::cout << "Resultado de suma: " << resultado.numerador << " / " << resultado.denominador;
+	std::cout << "Resultado de suma: " << resultado.numerador << " / " << resultado.denominador << "\n\n";
 }
