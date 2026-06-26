@@ -27,6 +27,8 @@ int main() {
 
 		catch (const std::invalid_argument& e) {
 			std::cout << e.what();
+			std::cin.clear();
+			std::cin.ignore();
 			--i;
 		}
 	}
@@ -54,6 +56,19 @@ int main() {
 			}
 			if (option == 1) {
 				f1->suma_fracciones(*f2);
+			}
+			if (option == 2) {
+				f1->resta_fracciones(*f2);
+			}
+			if (option == 3) {
+				f1->multiplicacion_fraccion(*f2);
+			}
+			if (option == 4) {
+				f1->division_fraccion(*f2);
+			}
+			if (option == 5) {
+				std::cout << "Saliendo del programa.\n\n";
+				break;
 			}
 		}
 

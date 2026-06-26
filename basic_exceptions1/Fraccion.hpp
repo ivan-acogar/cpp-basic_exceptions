@@ -11,6 +11,9 @@ public:
 	void const imprimir_fraccion();
 	void reducir_fraccion();
 	void suma_fracciones(Fraccion& f2);
+	void resta_fracciones(Fraccion& f2);
+	void division_fraccion(Fraccion& f2);
+	void multiplicacion_fraccion(Fraccion& f2);
 
 };
 
